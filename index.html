@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Day 1</title>
+</head>
+<body>
+    <!-- <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+
+    <h3>div vs span</h3>
+
+    <div style="color: blue;">All the h,div tags are called as block level elements</div>
+   
+
+    <span>I am span and I am an Inline element</span>
+
+    <h3>Paragraph Tag with its inline elements</h3>
+
+    <p>
+        Lorem ipsum <br>dolor sit amet consectetur 
+        <u>adipisicing elit. Blanditiis</u>, laboriosam voluptate. Vero aliquid tempora quasi placeat 
+        <i>reiciendis nihil minima aut id non?</i> Dolore ipsum error vitae, rerum soluta nam nobis? Lorem ipsum dolor sit amet consectetur
+        <s> adipisicing elit. Accusantium voluptatibus</s> fugit soluta culpa sed, animi hic temporibus, nobis atque eos possimus non necessitatibus dolore quia nihil neque itaque odio id. Lorem ipsum dolor sit amet consectetur, 
+        <b>Welcome to div inside paragraph</b>adipisicing elit. Ab illo ut aliquid deserunt, accusantium deleniti quia placeat dolorem unde, ipsa voluptate nisi autem laboriosam asperiores iure saepe molestiae. Nulla, quas!
+        <mark> ipsum dolor sit amet consectetur adipisicing elit.</mark> Quibusdam qui, reprehenderit nulla hic deleniti sed molestiae fugit impedit, exercitationem perferendis dolore in sit natus cumque fuga assumenda quod minima voluptates.
+        The formula is x<sup>2</sup>. 
+        The log value of log<sub>10</sub>10 is 1.
+    </p>
+    
+    <p>
+        Whenever we are using the p tag it will give you the line space.
+        This is a block level element
+    </p>
+
+    <h3>Semantic tags with Examples</h3>
+
+    <article>
+        The form, table, article, header, section, footer, asside all these are semantic tags.
+        They are called so because they name of the tag specifies the purpose or place where we are using them.
+    </article>
+    <header>
+        This is header
+    </header>
+    <section>
+        This is section
+
+    </section>
+
+    <footer>
+        This is footer
+    </footer>
+
+
+    <h3>Table with example</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Country</th>
+                <th>Capital</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>India</td>
+                <td>Delhi</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Srilanka</td>
+                <td>Columbo</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Japan</td>
+                <td>Tokyo</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Thailand</td>
+                <td>Bangkok</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>List</h3>
+    <h4>Unordered List</h4>
+    <div>My Favourite Teams are</div>
+    <ul type="circle">
+        <li>CSK</li>
+        <li>India</li>
+        <li>Newzeland</li>
+    </ul>
+    <ul type="square">
+        <li>CSK</li>
+        <li>India</li>
+        <li>Newzeland</li>
+    </ul>
+
+    <h4>Ordered List</h4>
+    <div>My Favourite Food is</div>
+    <ol>
+        <li>Chappathi</li>
+        <li>Chicken</li>
+        <li>Mutton</li>
+    </ol>
+
+    <h3>Anchor tag</h3>
+    <p> The a tag will help us to redirect to the provided href(hypertext reference attribute)</p>
+    <a href="https://www.google.com/">Click Here</a>
+    <a href="https://www.guvi.in/" target="_blank">Guvi Website</a>
+    <a href="./assets/lion.jpg">Internal Redirect</a>
+
+    <h3>Image Tag</h3>
+    <img src="https://www.guvi.in/web-build/images/guvi-logo.e8ad68fbd8dc0a5fc2f7c4ffd580c54d.png" alt="Guvi Logo">
+    <br>
+    <img src="https://www.guvi.in/web-build/images/guvi-logo.e8ad68fbd8dc0a5fc2f7c4ffd58054d.png" alt="Guvi Logo">
+    <br>
+    <img src="https://www.guvi.in/web-build/images/guvi-logo.e8ad68fbd8dc0a5fc2f7c4ffd580c54d.png" alt="Guvi Logo" height="100px" width="100px">
+    <br>
+    <a href="https://en.wikipedia.org/wiki/Lion" target="_blank">
+        <img src="./assets/lion.jpg" alt="Lion" width="200px" height="200px">
+    </a> -->
+    
+
+    <h3>HTML FORMS</h3>
+
+    <form>
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Name">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Email" required>
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Password" required>
+        <br>
+        <label for="dateOfBirth">Date of Birth</label>
+        <input type="date" name="dateOfBirth" placeholder="DOB">
+        <br>
+        <label>Shift Time</label>
+        <select name="shift">
+            <option value="" selected disabled>Select Shift</option>
+            <option value="1">9am to 5pm</option>
+            <option value="2">2pm to 11pm</option>
+            <option value="3">8pm to 3am</option>
+        </select>
+        <br>
+        <label for="dinner">Opt In for Dinner?</label>
+        <input type="radio" value="true" name="dinner"><label>Yes</label>
+        <input type="radio" value="false" name="dinner"><label>No</label>
+        <br>
+        <input type="checkbox" name="terms" checked >
+        <label for="terms">Agree Terms and Confitions</label>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
