@@ -2,3 +2,40 @@ a{
     text-decoration: none;
     color: black;
 }
+
+table,th,td{
+    border: 1px solid black;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr{
+    height: 50px;
+}
+
+td{
+    text-align: center;
+}
+
+.center{
+    text-align: center;
+}
+
+table thead tr:nth-child(1){
+    background-color: beige;
+}
+
+table tbody tr:nth-child(even){
+    background-color: beige;
+}
+
+table tbody tr:nth-child(even):hover{
+    background-color: azure;
+}
+
+tr:hover{
+    background-color: azure;
+}
