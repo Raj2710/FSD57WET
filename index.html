@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS</title>
+    <style>
+        *{
+            background-color: thistle;
+        }
+        p{
+            background-color: bisque;
+        }
+
+        .class-div{
+            background-color: pink;
+        }
+
+        #id-div{
+            background-color: chocolate;
+        }
+
+        .border{
+            border: 1px solid black;
+        }
+
+        .color{
+            color:maroon;
+        }
+
+        div{
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to CSS</h1>
+    <div>Ways of writing CSS</div>
+    <ul>
+        <li>Inline CSS</li>
+        <li>Internal CSS</li>
+        <li>External CSS</li>
+    </ul>
+
+    <div style="color: red;">This is an example of Inline css</div>
+
+    <div>Example for Internal CSS</div>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius autem et deserunt, cum quisquam dolore, distinctio reiciendis officia deleniti quidem blanditiis quod quasi enim, dolorem amet ducimus dicta saepe. Autem?</p>
+
+    <p>Selectors in CSS</p>
+    <ul>
+        <li>HTML Elements</li>
+        <li>Class Name (.)</li>
+        <li>ID (#)</li>
+        <li>Universal Selector (*)</li>
+    </ul>
+
+    <div class="class-div">This div is styled by Class Selector</div>
+
+    <div id="id-div">This div is styled by Id</div>
+
+
+    <div class="class-div" id="id-div">This div is styled by both class and id to check their priority and the style of id is applied</div>
+
+    <p>The priority of css selector is as follows</p>
+
+    <ol>
+        <li>Id</li>
+        <li>Class</li>
+        <li>HTML Elements</li>
+        <li>Universal Selector</li>
+    </ol>
+
+    <div class="border class-div color">We always can have mulitple class names separated by spaces for a html element</div>
+</body>
+</html>
