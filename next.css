@@ -39,3 +39,18 @@ table tbody tr:nth-child(even):hover{
 tr:hover{
     background-color: azure;
 }
+
+li:nth-child(odd){
+    color: blue;
+}
+li:nth-child(even){
+    color: yellowgreen;
+}
+
+li:last-child{
+    font-weight: bolder;
+}
+
+li:first-child{
+    font-style: italic;
+}
