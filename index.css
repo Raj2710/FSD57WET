@@ -1,0 +1,82 @@
+/* h1{
+    text-align: center;
+    margin: 0% 30% 0% 30%;
+
+    border: 10px solid black;
+        top right bottom left 
+    padding:50px;
+} */
+
+.wrapper{
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.card-wrapper{
+    width: 220px;
+    border: 1px outset black;
+    padding: 10px;
+    margin: 10px;
+}
+
+.content{
+    width: 400px !important;
+    height: 200px !important;
+    display:flex;
+    flex-direction: row;
+}
+
+.reverse{
+    flex-direction: row-reverse !important;
+}
+
+.static{
+    position: static;
+    left: 100px;
+    border: 2px solid black;
+}
+
+.relative{
+    position: relative;
+    left: 50px;
+    top:5px;
+    border: 2px solid black;
+}
+
+.fixed{
+    position: fixed;
+    left: 50px;
+    top:100px;
+    background-color: aqua;
+    border: 2px solid black;
+}
+
+.relative-2{
+    position: relative;
+    left: 200px;
+    top:300px;
+    border: 2px solid black;
+}
+
+.absolute{
+    position: absolute;
+    left: 50px;
+    border: 2px solid black;
+}
+
+.sticky-top{
+    position: sticky;
+    top:0;
+    background-color: palegreen;
+    border: 2px solid black;
+}
+
+.sticky-bottom{
+    position: sticky;
+    bottom:0;
+    background-color: palegreen;
+    border: 2px solid black;
+}
