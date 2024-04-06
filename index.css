@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.nav-wrapper{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    background-color: beige;
+}
+
+.brand{
+    width: 150px;
+}
+
+.left-container{
+    display: flex;
+    justify-content:flex-end;
+}
+.right-container{
+    display: flex;
+    justify-self: flex-end;
+    align-items: center;
+}
+
+.right-container div{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+    cursor: pointer;
+    font-family:'Gill Sans';
+    font-style: italic;
+    font-weight:bolder;
+    font-size:larger;
+    text-decoration:none;
+}
+.nav-icon{
+    display: flex;
+    align-items: center;
+}
+
