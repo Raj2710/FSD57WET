@@ -15,7 +15,7 @@
 
 .left-container{
     display: flex;
-    justify-content:flex-end;
+    justify-content:right;
 }
 .right-container{
     display: flex;
@@ -40,3 +40,39 @@
     align-items: center;
 }
 
+.overflow-wrapper{
+    display: flex;
+}
+
+.overflow-wrapper div{
+    margin-left: 10px;
+}
+
+.overflow{
+    width:200px;
+    height: 100px;
+    background-color: coral;
+}
+
+.visible{
+    overflow: visible;
+}
+
+.hidden{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.scroll{
+    overflow: scroll;
+}
+
+.auto{
+    overflow: auto;
+}
+
+.hidden:hover{
+    white-space: wrap;
+    overflow: visible;
+}
