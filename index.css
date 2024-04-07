@@ -112,6 +112,20 @@
     flex-direction: row;
 }
 
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: rgb(16, 54, 125);
+    border: 1px solid black;
+}
+
+.grid-item{
+    background-color: cornflowerblue;
+    margin: 5px;
+    border: 1px solid cornflowerblue;
+    text-align: center;
+}
+
 @media (max-width:900px){
     .media-example-wrappper{
         text-align: center;
@@ -120,6 +134,10 @@
 
     .nav-wrapper{
         flex-direction: column;
+    }
+
+    .grid-container{
+        grid-template-columns: auto auto;
     }
 }
 
@@ -133,4 +151,8 @@
     .image{
         width:300px
     }
+    .grid-container{
+        grid-template-columns: auto;
+    }
 }
+
