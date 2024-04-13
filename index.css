@@ -1,0 +1,158 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+.header{
+    background-color: #565656;
+    height: 310px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile{
+    height: 200px;
+    width: 200px;
+    margin-top: 50px;
+    border: 5px dotted #fabf29;
+    border-radius: 50%;
+}
+
+.name{
+    background-color: #fabf29;
+    position: absolute;
+    margin-top: 200px;
+    font-size: 4rem;
+    padding: 10px 50px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.stripe{
+    display: block;
+    height: 40px;
+    width: 100%;
+    top: 225px;
+    background-color: #eeeeee;
+    position: absolute;
+}
+
+.details{
+    margin: auto;
+    text-align: center;
+    font-size: x-large;
+    padding: 5px 5px 10px 5px;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.resume-body{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px
+}
+
+.body-left{
+    margin-left: 10px;
+}
+
+.body-right{
+    margin-left: 10px;
+    border-left: 1px solid #d2d2d2;
+    padding-left: 10px;
+}
+
+.card{
+    margin:20px 0px;
+}
+    
+.card-title{
+    display: flex;
+    align-items: center;
+}
+
+.card-name{
+    margin-left:10px;
+    font-size: xx-large;
+    color: #4e4b4b;
+}
+
+.card-content{
+   padding:20px 5px;
+}
+
+.icon-wrapper{
+    width: 50px;
+    height: 50px;
+    border: 5px dotted #fabe27;
+    border-radius: 50%;
+}
+
+.icon{
+    color:#fabe27;
+    margin-top: 7px;
+}
+
+.icon-background{
+    width: 50px;
+    height: 50px;
+    background-color: #565656;
+    text-align: center;
+    border-radius: 50%;
+    
+}
+.progress-wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+
+#progress{
+    accent-color:#fabe27 ;
+    width: 60%;
+}
+
+.role{
+    display: flex;
+    justify-content: space-between;
+}
+
+.list{
+    list-style-position: inside;
+}
+th{
+    text-align: center;
+}
+
+
+@media only screen and (max-width:500px) {
+    .header{
+        height: 280px;
+    }
+
+    .name{
+        font-size: 2.5rem;
+        padding: 10px;
+    }
+
+    .stripe{
+        height: 20px;
+    }
+    .details{
+        font-size:small;
+    }
+    .resume-body{
+        grid-template-columns: auto;
+    }
+
+    .body-right{
+        border: none;
+        padding: 0px;
+        margin-left:0px
+    }
+}
+
+/* #fabf29
+#eeeeee
+#3e453b 
+#9a9a9a
+*/
