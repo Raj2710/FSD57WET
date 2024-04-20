@@ -6,3 +6,24 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+#root{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card-wrapper{
+    border: 1px solid grey;
+    padding: 5px;
+    text-align: center;
+    margin: 10px;
+
+    height: auto;
+    width:300px;
+}
+
+.product-image{
+    height: 200px;
+    width: 200px;
+}
