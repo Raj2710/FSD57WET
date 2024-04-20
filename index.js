@@ -621,55 +621,59 @@ let products = [
 
 let root = document.getElementById("root")
 
-// products.forEach((e)=>{
-//     //create a wrapper div
-//     let wrapper = document.createElement("div")
-//     wrapper.setAttribute("class","card-wrapper")
-
-//     //create a image
-//     let image = document.createElement("img")
-//     image.setAttribute("class","product-image")
-//     image.setAttribute("src",e.thumbnail)
-//     image.setAttribute("alt",e.title)
-
-//     //create content section
-//     let content = document.createElement("div")
-//     content.setAttribute("class","content")
-
-//     let title = document.createElement("h3")
-//     title.innerText = e.title
-
-//     let description = document.createElement("p")
-//     description.innerText = e.description
-
-//     let price = document.createElement("p")
-//     price.innerHTML = `<s>$ ${e.price}</s> <b>$ ${Math.round(e.price * (100-e.discountPercentage)/100)}</b>`
-    
-//     content.append(title,description,price)
-
-//     wrapper.append(image,content)
-
-//     root.appendChild(wrapper)
-// })
-
-function addToCart(title){
-    alert(`Product ${title} Added to Cart`)
-}
-
-products.forEach((e,i)=>{
+products.forEach((e)=>{
+    //create a wrapper div
     let wrapper = document.createElement("div")
     wrapper.setAttribute("class","card-wrapper")
 
-    wrapper.innerHTML = `<img src="${e.thumbnail}" class="product-image">
-    <div class="content">
-        <h3>${e.title}</h3>
-        <p>${e.description}</p>
-        <p><s>$ ${e.price}</s> <b>$ ${Math.round(e.price * (100-e.discountPercentage)/100)}</b></p>
-        <button id="btn-${i}">Add to Cart</button>
-    </div>`
+    //create a image
+    let image = document.createElement("img")
+    image.setAttribute("class","product-image")
+    image.setAttribute("src",e.thumbnail)
+    image.setAttribute("alt",e.title)
+
+    //create content section
+    let content = document.createElement("div")
+    content.setAttribute("class","content")
+
+    let title = document.createElement("h3")
+    title.innerText = e.title
+
+    let description = document.createElement("p")
+    description.innerText = e.description
+
+    let price = document.createElement("p")
+    price.innerHTML = `<s>$ ${e.price}</s> <b>$ ${Math.round(e.price * (100-e.discountPercentage)/100)}</b>`
+    
+    let button = document.createElement("button")
+    button.innerText = "Add to Cart"
+    button.addEventListener("click",()=>alert(`Product ${e.title} added to cart!`))
+
+    content.append(title,description,price,button)
+
+    wrapper.append(image,content)
 
     root.appendChild(wrapper)
-
-    let button = document.getElementById(`btn-${i}`)
-    button.addEventListener("click",()=>addToCart(e.title))
 })
+
+// function addToCart(title){
+//     alert(`Product ${title} Added to Cart`)
+// }
+
+// products.forEach((e,i)=>{
+//     let wrapper = document.createElement("div")
+//     wrapper.setAttribute("class","card-wrapper")
+
+//     wrapper.innerHTML = `<img src="${e.thumbnail}" class="product-image">
+//     <div class="content">
+//         <h3>${e.title}</h3>
+//         <p>${e.description}</p>
+//         <p><s>$ ${e.price}</s> <b>$ ${Math.round(e.price * (100-e.discountPercentage)/100)}</b></p>
+//         <button id="btn-${i}">Add to Cart</button>
+//     </div>`
+
+//     root.appendChild(wrapper)
+
+//     let button = document.getElementById(`btn-${i}`)
+//     button.addEventListener("click",()=>addToCart(e.title))
+// })
