@@ -41,32 +41,32 @@
 // .then((value)=>console.log(`outer resolved - ${value}`))
 // .catch((error)=>console.log(`rejected - ${error}`))
 
-let promise1 = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        resolve("Promise1 is rejected after 3 secs")
-    },3000)
-})
+// let promise1 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         resolve("Promise1 is rejected after 3 secs")
+//     },3000)
+// })
 
-let promise2 = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        resolve("Promise2 is rejected after 2 secs")
-    },2000)
-})
+// let promise2 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         resolve("Promise2 is rejected after 2 secs")
+//     },2000)
+// })
 
-let promise3 = new Promise((resolve,reject)=>{
-    function myFunction(){
-        return "Promise3 is rejected"
-    }
-    reject(myFunction())
-})
+// let promise3 = new Promise((resolve,reject)=>{
+//     function myFunction(){
+//         return "Promise3 is rejected"
+//     }
+//     reject(myFunction())
+// })
 
-let promise4 = new Promise((resolve,reject)=>{
-    resolve("Promise4 is resolved")
-})
+// let promise4 = new Promise((resolve,reject)=>{
+//     resolve("Promise4 is resolved")
+// })
 
-let promise5 = new Promise((resolve,reject)=>{
-    reject("Promise5 is rejected")
-})
+// let promise5 = new Promise((resolve,reject)=>{
+//     reject("Promise5 is rejected")
+// })
 
 // Promise
 // .all([promise1,promise2,promise3,promise4,promise5]) //similar to AND gate
@@ -90,3 +90,43 @@ let promise5 = new Promise((resolve,reject)=>{
 // .allSettled([promise1,promise2,promise3,promise4,promise5])//gives the status of all the promise
 // .then((value)=>console.log(value))
 // .catch((error)=>console.log(error))
+
+//https://restcountries.com/v3.1/all
+
+
+fetch("https://restcountries.com/v3.1/all")
+.then((res)=>{
+    if(res.status===200)
+    {
+        let h1 = document.createElement("h1")
+        h1.innerText = res.status + " " + res.statusText
+
+        document.body.appendChild(h1)
+
+        return res.json()
+    }
+    else
+    {
+        console.log(res.status)
+        console.log(res.statusText)
+
+        let h1 = document.createElement("h1")
+        h1.innerText = res.status + " " + res.statusText
+
+        document.body.appendChild(h1)
+    }
+})
+.then((data)=>{
+    data.forEach((e)=>{
+        console.log(e.name.common)
+    })
+})
+.catch(error=>console.log(error))
+
+
+fetch("https://catfact.ninja/fact")
+.then((res)=>res.json())
+.then((data)=>{
+    console.log(data)
+})
+.catch(error=>console.log(error))
