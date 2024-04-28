@@ -18,31 +18,75 @@
 // .finally(()=>console.log("Finally will always execute at end"))
 
 
+// let promise1 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         resolve("Promise1 is resolved after 3 secs")
+//     },3000)
+// })
+
+// let promise2 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         resolve("Promise2 is resolved after 2 secs")
+//     },2000)
+// })
+
+// promise1
+// .then((value)=>{
+//     console.log(`resolved - ${value}`)
+// })
+// .catch((error)=>console.log(`rejected - ${error}`))
+
+
+// promise2
+// .then((value)=>console.log(`outer resolved - ${value}`))
+// .catch((error)=>console.log(`rejected - ${error}`))
+
 let promise1 = new Promise((resolve,reject)=>{
-    console.log("Promise 1 in pending state")
     setTimeout(()=>{
-        resolve(10)
-    },5000)
+        resolve("Promise1 is rejected after 3 secs")
+    },3000)
 })
 
 let promise2 = new Promise((resolve,reject)=>{
-    console.log("Promise 2 in pending state")
     setTimeout(()=>{
-        resolve(20)
+        resolve("Promise2 is rejected after 2 secs")
     },2000)
 })
 
-promise1
-.then((value)=>{
-    console.log(`resolved - ${value}`)
-
-    promise2
-    .then((value)=>console.log(`resolved - ${value}`))
-    .catch((error)=>console.log(`rejected - ${error}`))
+let promise3 = new Promise((resolve,reject)=>{
+    function myFunction(){
+        return "Promise3 is rejected"
+    }
+    reject(myFunction())
 })
-.catch((error)=>console.log(`rejected - ${error}`))
 
+let promise4 = new Promise((resolve,reject)=>{
+    resolve("Promise4 is resolved")
+})
 
-promise2
-.then((value)=>console.log(`outer resolved - ${value}`))
-.catch((error)=>console.log(`rejected - ${error}`))
+let promise5 = new Promise((resolve,reject)=>{
+    reject("Promise5 is rejected")
+})
+
+// Promise
+// .all([promise1,promise2,promise3,promise4,promise5]) //similar to AND gate
+// .then((value)=>console.log(`all resolved - ${value}`,value))
+// .catch((error)=>console.log(`all rejected - ${error}`))
+
+// Promise
+// .any([promise1,promise2,promise3,promise4,promise5])//similar to OR gate
+// .then((value)=>console.log(`any resolved - ${value}`,value))
+// .catch((error)=>console.log(`any rejected - ${error}`))
+
+// Promise
+// .race([promise1,promise2,promise3,promise4,promise5])//whoever comes first will be the result
+// .then((value)=>console.log(`race resolved - ${value}`))
+// .catch((error)=>console.log(`race rejected - ${error}`))
+
+//any will wait untill atleast one promise is resolved
+//race don't care about resolve or reject the first to be settled is the output
+
+// Promise
+// .allSettled([promise1,promise2,promise3,promise4,promise5])//gives the status of all the promise
+// .then((value)=>console.log(value))
+// .catch((error)=>console.log(error))
