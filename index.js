@@ -94,39 +94,109 @@
 //https://restcountries.com/v3.1/all
 
 
-fetch("https://restcountries.com/v3.1/all")
-.then((res)=>{
-    if(res.status===200)
-    {
-        let h1 = document.createElement("h1")
-        h1.innerText = res.status + " " + res.statusText
+// fetch("https://restcountries.com/v3.1/all")
+// .then((res)=>{
+//     if(res.status===200)
+//     {
+//         let h1 = document.createElement("h1")
+//         h1.innerText = res.status + " " + res.statusText
 
-        document.body.appendChild(h1)
+//         document.body.appendChild(h1)
 
-        return res.json()
-    }
-    else
-    {
-        console.log(res.status)
-        console.log(res.statusText)
+//         return res.json()
+//     }
+//     else
+//     {
+//         console.log(res.status)
+//         console.log(res.statusText)
 
-        let h1 = document.createElement("h1")
-        h1.innerText = res.status + " " + res.statusText
+//         let h1 = document.createElement("h1")
+//         h1.innerText = res.status + " " + res.statusText
 
-        document.body.appendChild(h1)
-    }
+//         document.body.appendChild(h1)
+//     }
+// })
+// .then((data)=>{
+//     data.forEach((e)=>{
+//         console.log(e.name.common)
+//     })
+// })
+// .catch(error=>console.log(error))
+
+
+// fetch("https://catfact.ninja/fact")
+// .then((res)=>res.json())
+// .then((data)=>{
+//     console.log(data)
+// })
+// .catch(error=>console.log(error))
+
+
+//Promise Chaining
+
+let promise1 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("Promise1 is resolved after 3 secs")
+    },2000)
 })
-.then((data)=>{
-    data.forEach((e)=>{
-        console.log(e.name.common)
+
+let promise2 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("Promise2 is resolved after 2 secs")
+    },3000)
+})
+
+let promise3 = new Promise((resolve,reject)=>{
+    function myFunction(){
+        return "Promise3 is rejected"
+    }
+    reject(myFunction())
+})
+
+let promise4 = new Promise((resolve,reject)=>{
+    resolve("Promise4 is resolved")
+})
+
+let promise5 = new Promise((resolve,reject)=>{
+    resolve("Promise5 is resolved")
+})
+
+
+promise1
+.then((value)=>{
+    console.log(value)
+
+    promise2.then((value)=>{
+        console.log(value)
+
+        promise3.then((value)=>{
+            console.log(value)
+
+            promise4.then((value)=>{
+                console.log(value)
+
+                promise5.then((value)=>{
+                    console.log(value)
+                    console.log("-----------THE END-------------")            
+                })
+                .catch((error)=>console.log(error))
+            })
+            .catch((error)=>console.log(error))
+        })
+        .catch((error)=>{
+            console.log(error)
+            promise4.then((value)=>{
+                console.log(value)
+
+                promise5.then((value)=>{
+                    console.log(value)
+                    console.log("-----------THE END-------------")            
+                })
+                .catch((error)=>console.log(error))
+            })
+            .catch((error)=>console.log(error))
+        })
     })
+    .catch((error)=>console.log(error))
 })
-.catch(error=>console.log(error))
-
-
-fetch("https://catfact.ninja/fact")
-.then((res)=>res.json())
-.then((data)=>{
-    console.log(data)
-})
-.catch(error=>console.log(error))
+.catch((error)=>console.log(error))
