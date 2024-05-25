@@ -17,8 +17,10 @@ function Card({data}) {
                                   <div className="progress progress-sm mr-2">
                                       <div className="progress-bar bg-info" role="progressbar"
                                           style={{
-                                              width: `${data.value}%`, ariaValueNow:data.value, ariaValueMin: "0",
-                                              ariaValueMax: "100"
+                                          width: `${data.value}%`, 
+                                          ariaValueNow:data.value, 
+                                          ariaValueMin: "0",
+                                          ariaValueMax: "100"
                                           }}></div>
                                   </div>
                               </div>
