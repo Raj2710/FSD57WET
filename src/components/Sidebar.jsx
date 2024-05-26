@@ -27,13 +27,6 @@ function Sidebar() {
           <span>Add User</span>
         </Link>
       </li>
-
-      <li className="nav-item">
-        <Link to='/view-user' className="nav-link collapsed">
-          <i className="fas fa-fw fa-wrench"></i>
-          <span>View User</span>
-        </Link>
-      </li>
       <hr className="sidebar-divider" />
     </ul>
   </>
