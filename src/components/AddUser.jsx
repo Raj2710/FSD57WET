@@ -1,9 +1,12 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../App';
+function AddUser() {
 
-function AddUser({data,setData}) {
+    let {data,setData} = useContext(UserContext)
+
     let [name,setName] = useState("")
     let [email,setEmail] = useState("")
     let [mobile,setMobile] = useState("")

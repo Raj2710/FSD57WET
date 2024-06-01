@@ -4,6 +4,9 @@ import Dashboard from './components/Dashboard'
 import AddUser from './components/AddUser'
 import ViewUser from './components/ViewUser'
 import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom'
+import DashboardContextComponent from './context/DashboardContextComponent'
+export const UserContext = React.createContext()//creating the context
+
 function App() {
   let [data,setData] = useState([
     {
@@ -35,17 +38,23 @@ function App() {
       batch:"FSD58"
     }
   ])
+
+  
   return <>
   <div id="wrapper">
-    <BrowserRouter>
+    <UserContext.Provider value = {{data,setData}}>
+    <BrowserRouter>   
     <Sidebar/>
       <Routes>
-        <Route path='/' element={<Dashboard data = {data} setData={setData}/>}/>
-        <Route path='/add-user' element={<AddUser data = {data} setData={setData}/>}/>
-        <Route path='/view-user/:id' element={<ViewUser data = {data} setData={setData}/>}/>
+        <Route path='/' element={<DashboardContextComponent>
+                                    <Dashboard/>
+                                  </DashboardContextComponent>}/>
+        <Route path='/add-user' element={<AddUser/>}/>
+        <Route path='/view-user/:id' element={<ViewUser/>}/>
         <Route path="*" element={<Navigate to='/'/>}/>
       </Routes>
     </BrowserRouter>
+    </UserContext.Provider>
   </div>
   </>
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-
 function Sidebar() {
   return <>
     <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
