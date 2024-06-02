@@ -5,6 +5,11 @@ import AddUser from './components/AddUser'
 import ViewUser from './components/ViewUser'
 import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom'
 import DashboardContextComponent from './context/DashboardContextComponent'
+import NestedExample from './components/NestedExample'
+import Profile from './components/NestedExample/Profile'
+import Settings from './components/NestedExample/Settings'
+import Feed from './components/NestedExample/Feed'
+
 export const UserContext = React.createContext()//creating the context
 
 function App() {
@@ -51,7 +56,12 @@ function App() {
                                   </DashboardContextComponent>}/>
         <Route path='/add-user' element={<AddUser/>}/>
         <Route path='/view-user/:id' element={<ViewUser/>}/>
-        <Route path="*" element={<Navigate to='/'/>}/>
+        <Route path='/nested-example' element={<NestedExample/>}>
+            <Route path='profile' element={<Profile/>}/> 
+            <Route path='settings' element={<Settings/>}/>
+            <Route path='feed' element={<Feed/>}/>
+        </Route>
+        {/* <Route path="*" element={<Navigate to='/'/>}/> */}
       </Routes>
     </BrowserRouter>
     </UserContext.Provider>
