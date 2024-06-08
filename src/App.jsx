@@ -9,6 +9,7 @@ import NestedExample from './components/NestedExample'
 import Profile from './components/NestedExample/Profile'
 import Settings from './components/NestedExample/Settings'
 import Feed from './components/NestedExample/Feed'
+import Recap from './components/Recap'
 
 export const UserContext = React.createContext()//creating the context
 
@@ -61,6 +62,7 @@ function App() {
             <Route path='settings' element={<Settings/>}/>
             <Route path='feed' element={<Feed/>}/>
         </Route>
+        <Route path='/recap' element={<Recap/>}/>
         {/* <Route path="*" element={<Navigate to='/'/>}/> */}
       </Routes>
     </BrowserRouter>

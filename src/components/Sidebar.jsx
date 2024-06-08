@@ -32,6 +32,12 @@ function Sidebar() {
           <span>Nested Example</span>
         </Link>
       </li>
+      <li className="nav-item">
+        <Link to='/recap' className="nav-link collapsed">
+          <i className="fas fa-fw fa-cog"></i>
+          <span>Recap</span>
+        </Link>
+      </li>
       <hr className="sidebar-divider" />
     </ul>
   </>
