@@ -10,7 +10,8 @@ import Profile from './components/NestedExample/Profile'
 import Settings from './components/NestedExample/Settings'
 import Feed from './components/NestedExample/Feed'
 import Recap from './components/Recap'
-
+import UseRef from './components/Hooks/UseRef'
+import UseReducer from './components/Hooks/UseReducer'
 export const UserContext = React.createContext()//creating the context
 
 function App() {
@@ -63,6 +64,8 @@ function App() {
             <Route path='feed' element={<Feed/>}/>
         </Route>
         <Route path='/recap' element={<Recap/>}/>
+        <Route path='/hooks/useref' element={<UseRef/>}/>
+        <Route path='/hooks/usereducer' element={<UseReducer/>}/>
         {/* <Route path="*" element={<Navigate to='/'/>}/> */}
       </Routes>
     </BrowserRouter>

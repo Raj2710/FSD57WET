@@ -38,6 +38,19 @@ function Sidebar() {
           <span>Recap</span>
         </Link>
       </li>
+      <li className="nav-item">
+        <Link to='/hooks/useref' className="nav-link collapsed">
+          <i className="fas fa-fw fa-cog"></i>
+          <span>UseRef</span>
+        </Link>
+      </li>
+
+      <li className="nav-item">
+        <Link to='/hooks/usereducer' className="nav-link collapsed">
+          <i className="fas fa-fw fa-cog"></i>
+          <span>UseReducer</span>
+        </Link>
+      </li>
       <hr className="sidebar-divider" />
     </ul>
   </>
