@@ -3,9 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../App';
+import { Actions } from './utils/Actions';
 function AddUser() {
 
-    let {data,setData} = useContext(UserContext)
+    let {data,dispatch} = useContext(UserContext)
 
     let [name,setName] = useState("")
     let [email,setEmail] = useState("")
@@ -15,6 +16,7 @@ function AddUser() {
     let navigate = useNavigate()
 
     const handleSubmit = ()=>{
+        console.log('welcome')
         let id = data.length?data[data.length-1].id+1:1
         let newUser = {
             id,
@@ -23,10 +25,7 @@ function AddUser() {
             mobile,
             batch
         }
-        
-        let newArray = [...data]//deep copy
-        newArray.push(newUser)//add the user
-        setData(newArray)//update the state using state Fn
+        dispatch({type:Actions.ADD_USER,payload:newUser})
 
         navigate('/')
     }

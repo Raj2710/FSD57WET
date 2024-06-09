@@ -4,10 +4,11 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate,useParams } from 'react-router-dom';
 import { findIndexById } from './utils/Helper';
 import { UserContext } from '../App';
+import { Actions } from './utils/Actions';
 
 function AddUser() {
 
-    let {data,setData} = useContext(UserContext)
+    let {data,dispatch} = useContext(UserContext)
 
     let [name,setName] = useState("")
     let [email,setEmail] = useState("")
@@ -58,10 +59,7 @@ function AddUser() {
     const handleSubmit = ()=>{
         let index = findIndexById(data,Number(id))
         let editedData = {id:data[index].id,name,email,mobile,batch}//forming the object
-
-        let newArray = [...data]//deep copy
-        newArray.splice(index,1,editedData)//replace the old data with edited data
-        setData(newArray)
+        dispatch({type:Actions.EDIT_USER,payload:editedData})
 
         navigate('/')
 
