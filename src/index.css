@@ -1,0 +1,22 @@
+.header{
+    margin: 10px;
+    text-align: center;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+.todo{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.todo-item{
+    margin: 10px;
+}
+
+.mt-30{
+    margin-top: 30px !important;
+}
