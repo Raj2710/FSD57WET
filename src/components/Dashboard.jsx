@@ -7,20 +7,25 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { useNavigate } from 'react-router-dom';
 import ApiRoutes from '../utils/ApiRoutes';
 import AxiosService from '../utils/AxiosService';
-
+import Form from 'react-bootstrap/Form';
+import { useSelector,useDispatch } from 'react-redux';
+import { save,edit,deleteById } from '../redux/BlogSlice';
 function Dashboard() {
   
-  let [data,setData] = useState([])
+  let blogs = useSelector((state)=>state.blog.blogs)
+  let dispatch = useDispatch()
+
   let navigate = useNavigate()
   let getData = async()=>{
     try {
       let response = await AxiosService.get(ApiRoutes.BLOG_APP.path)
       if(response.status===200)
       {
-          setData(response.data)
+          dispatch(save(response.data))
       } 
     } catch (error) {
-        toast(error.response.message || "Internal Server Error")
+      console.log(error)
+        toast(error.response?.message || "Internal Server Error")
     }
   }
 
@@ -28,8 +33,29 @@ function Dashboard() {
     getData()
   },[])
 
+  let handleStatusChange = async(id,status)=>{
+    dispatch(edit(id))
+    try {
+      let response = await AxiosService.put(`${ApiRoutes.BLOG_APP.path}/${id}`,{
+        status:!status
+      })
+      if(response.status===200)
+      {
+        toast.success("Data Deleted Successfully")
+        getData()
+      }
+      else{
+        dispatch(edit(id))
+      }
+    } catch (error) {
+      dispatch(edit(id))
+      toast(error.response.message || "Internal Server Error")
+    }
+  }
+
   let handleDelete = async(id)=>{
     try {
+      dispatch(deleteById(id))
       let response = await AxiosService.delete(`${ApiRoutes.BLOG_APP.path}/${id}`)
       if(response.status===200)
       {
@@ -55,13 +81,23 @@ function Dashboard() {
       </thead>
       <tbody>
         {
-          data.map((e,i)=>{
+          blogs.map((e,i)=>{
             return <tr key={i}>
               <td>{i+1}</td>
               <td>{e.title}</td>
               <td style={{"textAlign":"center"}}><img src={e.image?e.image:placeholder} height="50px" width="50px"/></td>
               <td ><div className='description'>{e.description}</div></td>
-              <td>{e.status?"Active":"Inactive"}</td>
+              <td> 
+                <Form>
+                  <Form.Check
+                    type="switch"
+                    id="custom-switch"
+                    label={e.status?"Active":"Inactive"}
+                    checked={e.status}
+                    onChange={()=>handleStatusChange(e.id,e.status)}
+                  />
+                </Form>
+            </td>
               <td>
                 <EditIcon onClick={()=>navigate(`/feed/${e.id}`)}/>
                 <DeleteForeverIcon onClick={()=>handleDelete(e.id)}/>
