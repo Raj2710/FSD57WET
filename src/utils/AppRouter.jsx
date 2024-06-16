@@ -3,6 +3,7 @@ import Dashboard from '../components/Dashboard'
 import Home from '../components/Home'
 import View from '../components/View'
 import TopBar from '../components/TopBar'
+import SampleForm from '../components/SampleForm'
 import { Navigate } from 'react-router-dom'
 const AppRouter = [
     {
@@ -20,6 +21,10 @@ const AppRouter = [
     {
         path:'/feed/:id',
         element:<><TopBar/><View/></>
+    },
+    {
+        path:'/form',
+        element:<><TopBar/><SampleForm/></>
     },
     {
         path:'/*',
