@@ -1,4 +1,6 @@
 import {findIndexById} from '../common/helper.js'
+import userModel from '../model/userModel.js'
+import {ObjectId} from 'mongodb'
 const users = [
     {
         id:1,
@@ -22,8 +24,9 @@ const users = [
         age:45
     }
 ]
-const getAllUsers = (req,res)=>{
+const getAllUsers = async(req,res)=>{
     try {
+        let users = await userModel.findAll()
         res.status(200).send({
             message:"Data Fetch Successfull",
             data:users
@@ -36,16 +39,16 @@ const getAllUsers = (req,res)=>{
     }
 }
 
-const getUserById = (req,res)=>{
+const getUserById = async (req,res)=>{
     try {
         const {id} = req.params;
 
-        let index = findIndexById(users,Number(id))
+        let user = await userModel.findByFilter({_id:ObjectId.createFromHexString(id)})
 
-        if(index!==-1){
+        if(user){
             res.status(200).send({
                 message:"Data Fetch Successfull",
-                data:users[index]
+                data:user
             })
         }
         else
@@ -63,19 +66,80 @@ const getUserById = (req,res)=>{
 }
 
 
-const createUser = (req,res)=>{
+const createUser = async(req,res)=>{
     try {
-        
-        let dob = new Date(req.body.dob)
-        let today = new Date()
-        req.body.age = Math.abs(today.getFullYear() - dob.getFullYear())
-        req.body.id = users.length ? users[users.length-1].id + 1 : 1;
 
-        users.push(req.body)
+        let user = await userModel.findByFilter({email:req.body.email})
+        if(!user){
+            let dob = new Date(req.body.dob)
+            let today = new Date()
+            req.body.age = Math.abs(today.getFullYear() - dob.getFullYear())
 
-        res.status(201).send({
-            message:"Data Saved Successfull"
+            await userModel.insertOne(req.body)
+
+            res.status(201).send({
+                message:"Data Saved Successfull"
+            })
+        }
+        else
+        {
+            res.status(400).send({
+                message:`User with email ${req.body.email} already exists!`
+            })
+        }
+    } catch (error) {
+        res.status(500).send({
+            message:error.message || "Internal Server Error",
+            error
         })
+    }
+}
+
+const editUserById = async(req,res)=>{
+    try {
+        const {id} = req.params;
+        let user = await userModel.findByFilter({_id:ObjectId.createFromHexString(id)})
+        if(user){
+            let dob = new Date(req.body.dob)
+            let today = new Date()
+            req.body.age = Math.abs(today.getFullYear() - dob.getFullYear())
+            
+            await userModel.editById({_id:ObjectId.createFromHexString(id)},req.body)
+
+            res.status(200).send({
+                message:"Data Updated Successfully"
+            })
+        }
+        else
+        {
+            res.status(400).send({
+                message:"Invalid User Id"
+            })
+        }
+    } catch (error) {
+        res.status(500).send({
+            message:error.message || "Internal Server Error",
+            error
+        })
+    }
+}
+
+const deleteUserById = async(req,res)=>{
+    try {
+        const {id} = req.params;
+        let user = await userModel.findByFilter({_id:ObjectId.createFromHexString(id)})
+        if(user){
+            await userModel.deleteById({_id:ObjectId.createFromHexString(id)})
+            res.status(200).send({
+                message:"Data Deleted Successfully"
+            })
+        }
+        else
+        {
+            res.status(400).send({
+                message:"Invalid User Id"
+            })
+        }
     } catch (error) {
         res.status(500).send({
             message:error.message || "Internal Server Error",
@@ -87,5 +151,7 @@ const createUser = (req,res)=>{
 export default {
     getAllUsers,
     getUserById,
-    createUser
+    createUser,
+    editUserById,
+    deleteUserById
 }
