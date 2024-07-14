@@ -1,29 +1,7 @@
 import {findIndexById} from '../common/helper.js'
 import userModel from '../model/userModel.js'
 import {ObjectId} from 'mongodb'
-const users = [
-    {
-        id:1,
-        name:"Nagarajan",
-        email:"naga@gmail.com",
-        dob:"27-11-1990",
-        age:34
-    },
-    {
-        id:2,
-        name:"Arun",
-        email:"arun@gmail.com",
-        dob:"27-11-1993",
-        age:31
-    },
-    {
-        id:3,
-        name:"Bala",
-        email:"bala@gmail.com",
-        dob:"27-11-1980",
-        age:45
-    }
-]
+
 const getAllUsers = async(req,res)=>{
     try {
         let users = await userModel.findAll()
