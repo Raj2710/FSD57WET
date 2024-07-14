@@ -84,8 +84,70 @@ const createUser = (req,res)=>{
     }
 }
 
+const editUserById = (req,res)=>{
+    try {
+        const {id} = req.params;
+
+        let index = findIndexById(users,Number(id))
+
+        if(index!==-1){
+            let dob = new Date(req.body.dob)
+            let today = new Date()
+            req.body.age = Math.abs(today.getFullYear() - dob.getFullYear())
+            req.body.id = Number(id)
+
+            users.splice(index,1,req.body
+
+            )
+            res.status(200).send({
+                message:"Data Updated Successfullynpmn ",
+            })
+        }
+        else
+        {
+            res.status(400).send({
+                message:"Invalid User Id"
+            })
+        }
+    } catch (error) {
+        res.status(500).send({
+            message:error.message || "Internal Server Error",
+            error
+        })
+    }
+}
+
+const deleteUserById = (req,res)=>{
+    try {
+        const {id} = req.params;
+
+        let index = findIndexById(users,Number(id))
+
+        if(index!==-1){
+
+            users.splice(index,1)
+            
+            res.status(200).send({
+                message:"Data Deleted Successfully",
+            })
+        }
+        else
+        {
+            res.status(400).send({
+                message:"Invalid User Id"
+            })
+        }
+    } catch (error) {
+        res.status(500).send({
+            message:error.message || "Internal Server Error",
+            error
+        })
+    }
+}
 export default {
     getAllUsers,
     getUserById,
-    createUser
+    createUser,
+    editUserById,
+    deleteUserById
 }
