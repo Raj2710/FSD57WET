@@ -2,7 +2,7 @@ import {Router} from 'express'
 import employeeRoutes from './employee.js'
 import roomRoutes from './room.js'
 import bookingRoutes from './booking.js'
-
+import userRoutes from './user.js'
 const routes = Router()
 
 routes.get('/',(req,res)=>{
@@ -15,6 +15,6 @@ routes.get('/',(req,res)=>{
 routes.use('/employee',employeeRoutes);
 routes.use('/booking',bookingRoutes);
 routes.use('/room',roomRoutes);
-
+routes.use('/user',userRoutes);
 
 export default routes

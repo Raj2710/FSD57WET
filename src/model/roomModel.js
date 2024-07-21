@@ -8,7 +8,6 @@ const roomSchema = new mongoose.Schema({
     },
     capacity:{
         type:Number,
-        min:[10,"Minimum 10 Seat is required"],
         required:true
     },
     amenities:{

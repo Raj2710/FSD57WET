@@ -1,3 +1,4 @@
+import auth from '../common/auth.js';
 import employeeModel from '../model/employeeModel.js'
 
 const getAllEmployee = async(req,res)=>{
@@ -20,6 +21,8 @@ const createEmployee = async(req,res)=>{
         let user = await employeeModel.findOne({email:req.body.email})
         if(!user)
         {
+            req.body.password = await auth.hashPassword(req.body.password)
+
             await employeeModel.create(req.body)
 
             res.status(201).send({
@@ -33,6 +36,7 @@ const createEmployee = async(req,res)=>{
             })
         }
     } catch (error) {
+        console.log(error)
         res.status(500).send({
             message:error.message || "Internal Server Error",
             error
