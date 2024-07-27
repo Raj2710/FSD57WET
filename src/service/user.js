@@ -18,7 +18,8 @@ const login = async(req,res)=>{
                 let token = await auth.createToken(payload)
                 res.status(200).send({
                     message:"Login Successfull",
-                    token
+                    token,
+                    role:user.role
                 })
             }
             else
