@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs'
 import 'dotenv/config.js'
-
+import jwt from 'jsonwebtoken'
 
 const hashPassword = async(password)=>{
     try {
@@ -21,7 +21,29 @@ const hashCompare = async(password,hashedPassword)=>{
     }
 }
 
+const createToken = async(payload)=>{
+    try {
+        return await jwt.sign(
+            payload,
+            process.env.JWT_SECRET,
+            {expiresIn:'1m'}
+        )
+     } catch (error) {
+         throw error
+     }
+}
+
+const decodeToken = async(token)=>{
+    try {
+        return await jwt.decode(token)
+     } catch (error) {
+         throw error
+     }
+}
+
 export default {
     hashPassword,
-    hashCompare
+    hashCompare,
+    createToken,
+    decodeToken
 }

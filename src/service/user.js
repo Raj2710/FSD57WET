@@ -1,6 +1,5 @@
 import auth from "../common/auth.js";
 import employeeModel from "../model/employeeModel.js";
-
 const login = async(req,res)=>{
     try {
         let user = await employeeModel.findOne({email:req.body.email});
@@ -9,8 +8,17 @@ const login = async(req,res)=>{
             //validate pwd
             if(await auth.hashCompare(req.body.password,user.password))
             {
+                let payload = {
+                    _id:user._id,
+                    firstName:user.firstName,
+                    lastName:user.lastName,
+                    email:user.email,
+                    role:user.role
+                }
+                let token = await auth.createToken(payload)
                 res.status(200).send({
-                    message:"Login Successfull"
+                    message:"Login Successfull",
+                    token
                 })
             }
             else

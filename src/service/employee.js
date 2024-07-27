@@ -16,6 +16,30 @@ const getAllEmployee = async(req,res)=>{
     }
 }
 
+const getEmployeeById = async(req,res)=>{
+    try {
+        let user = await employeeModel.findById(req.params.id);
+        if(user)
+        {
+            res.status(200).send({
+                message:"Data Fetch Successfull",
+                data:user
+            })
+        }
+        else
+        {
+            res.status(400).send({
+                message:"Invalid User Id"
+            })
+        }
+    } catch (error) {
+        res.status(500).send({
+            message:error.message || "Internal Server Error",
+            error
+        })
+    }
+}
+
 const createEmployee = async(req,res)=>{
     try {
         let user = await employeeModel.findOne({email:req.body.email})
@@ -46,5 +70,6 @@ const createEmployee = async(req,res)=>{
 
 export default {
     getAllEmployee,
+    getEmployeeById,
     createEmployee
 }
