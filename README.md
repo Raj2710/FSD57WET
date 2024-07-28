@@ -1,8 +1,11 @@
-# React + Vite
+Login and Auth - Completed
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Admin:
+1. Rooms Management
+2. Employee Management
+3. Dashboard - Displays the details of meeting planned today
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Employee:
+1. Dashboard - Displays the details of meeting planned today
+2. Create a new booking
+3. Profile(optional)

@@ -26,10 +26,8 @@ function Login() {
         toast.success(res.data.message)
         sessionStorage.setItem('token',res.data.token)
         sessionStorage.setItem('role',res.data.role)
-        if(res.data.role==='Admin')
+        if(res.data.role==='Admin' || res.data.role==="Employee")
             navigate('/dashboard')
-        else
-            navigate(`/profile/${1}`)
       }
     } catch (error) {
       toast.error(error.response.data.message)
