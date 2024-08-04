@@ -21,9 +21,11 @@ AxiosService.interceptors.response.use(response=>{
     return response.data
 },error=>{
     const {response} = error
-    const logout = useLogout()
+    console.log(error)
     if(response.status===401)
-        logout()
+    {
+        window.location.assign('/login')
+    }
     else
        throw response.data
 })

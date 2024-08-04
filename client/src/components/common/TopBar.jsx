@@ -22,7 +22,12 @@ function TopBar() {
     {
       label:'Create Blog',
       path:'/create',
-      role:["User"]
+      role:["User","Admin"]
+    },
+    {
+      label:'My Blogs',
+      path:'/blogs',
+      role:["User","Admin"]
     }
   ]
 
@@ -38,10 +43,10 @@ function TopBar() {
                 links.map((link,i)=>{
                   return link.role.includes(role)?
                   <Nav.Link 
+                  key={i}
                   onClick={()=>navigate(link.path)} 
-                  className={link.path===pathname?'active':''} 
-                  key={i}>{link.label}</Nav.Link>
-                  :<></>
+                  className={link.path===pathname?'active':''}>{link.label}</Nav.Link>
+                  :<React.Fragment key={i}></React.Fragment>
                 })
               }
             </Nav>

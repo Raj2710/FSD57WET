@@ -26,7 +26,7 @@ export default [
         element:<ProtectedRoute><TopBar/><Create/></ProtectedRoute>
     },
     {
-        path:'/blog/:id',
+        path:'/blogs',
         element:<ProtectedRoute><TopBar/><Blogs/></ProtectedRoute>
     },
     {

@@ -16,6 +16,7 @@ const getAllBlogsQuery = [
             title:1,
             image:1,
             description:1,
+            status:1,
             firstName:'$user_details.firstName',
             lastName:'$user_details.lastName'
         }
@@ -28,6 +29,7 @@ const getAllBlogsQuery = [
             title:1,
             image:1,
             description:1,
+            status:1,
             name:{$concat:["$firstName"," ","$lastName"]}
         }
     }

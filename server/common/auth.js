@@ -26,7 +26,7 @@ const createToken = async(payload)=>{
         return await jwt.sign(
             payload,
             process.env.JWT_SECRET,
-            {expiresIn:'1h'}
+            {expiresIn:'5m'}
         )
      } catch (error) {
          throw error
