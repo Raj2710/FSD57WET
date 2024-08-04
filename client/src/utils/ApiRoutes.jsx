@@ -1,3 +1,26 @@
 export default {
-    
+    LOGIN:{
+        path:'/user/login',
+        auth:false
+    },
+    CREATE_BLOG:{
+        path:'/blog/createBlog',
+        auth:true
+    },
+    GET_ALL_BLOGS:{
+        path:'/blog/getAllBlogs',
+        auth:true
+    },
+    GET_ALL_APPROVED_BLOGS:{
+        path:'/blog/getAllApprovedBlogs',
+        auth:true
+    },
+    CHANGE_STATUS:{
+        path:'/blog/changeStatus',
+        auth:true
+    },
+    GET_ALL_BLOGS_BY_USER_ID:{
+        path:'/blog/getAllBlogsByUserId',
+        auth:true
+    }
 }
